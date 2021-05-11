@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: black;
+  color: white;
+text-align: center;
+font-family: "Lucida Console", "Courier New", monospace;
+
+}
+
+p, small{
+	margin: 0 auto;
+	padding-bottom: 1rem;
+}
+
+p, textarea, small, button{
+	max-width:480px;
+		width:100%;
+
+	color:white;
+}
+	textarea{
+		background-color: black;
+		padding-bottom: 1.5rem;
+}
+
+button{
+	height: 36px;
+	background-color: #333333;
+}
+
+button:hover {
+  background-color: #666666;
+}
+</style>
+</head>
+<body>
+
+<h1>BubbleHR Decrypt</h1>
+
+<p><span> Enter a <u>small chunk</u> of the job description from a recruiter and see who they are representing.</span></p>
+
+
+<p><small>Note: The trick is to find the <u>more unique</u> part of the description, not the generic stuff!</small></p>
+
+
+<textarea id="text" rows="4" cols="50"></textarea>
+<br \>
+<button onClick="submit()">Submit</button>
+</body>
+
+<script>
+	 const baseURL = "http://www.google.com/search?"
+	 const query = "q="
+	 const textElement = document.getElementById('text');	 
+	 function submit(){
+
+		 window.open(baseURL+query+textElement.value.replaceAll(' ', '+').replaceAll('\n', '+'))
+	 }
+	 
+	 textElement.addEventListener('keypress', function (e) {
+	     if (e.key === 'Enter') {
+			 submit()
+	     }
+	 });
+	 
+	 
+</script>
+</html>
+
